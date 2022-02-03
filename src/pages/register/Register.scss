@@ -1,0 +1,42 @@
+.Register {
+    justify-items: center;
+    justify-content: center;
+    margin: 4vh 24vw;
+   
+    .inputcont {
+        width: 252px;
+        height: 32px;
+        margin: 1vh 0vw;
+    }
+    .passinputcont{
+        width: 252px;
+        height: 32px;
+        margin: 2vh 0vw;
+    }
+    .Registerbutton{
+        width: 252px;
+        height: 37px;
+        background-color: #A03037;
+        font-size: 18px;
+    }
+    .Barside{
+        margin: 2vh 5vw;        
+    }
+    .mainButton{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 35px;
+        // display: flex;
+        // margin: 0vh 2vw;
+    
+        .facebutton{
+            width: 126px;
+            height: 37px;
+            background-color: black;
+        }
+        .googleButton{
+            width: 130px;
+            height: 45px;
+        }
+    }
+}

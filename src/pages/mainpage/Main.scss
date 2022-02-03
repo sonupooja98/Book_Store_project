@@ -1,0 +1,52 @@
+.firstContainer{
+    background: #c5bfbf 0% 0% no-repeat padding-box;
+    margin: 0px;
+    height: 843px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .background {
+        border-radius: 21px;
+        width: 624px;
+        height: 391px;
+        background-color: #f5f5f5;
+        .symbol {
+            width: 245px;
+            height: 245px;
+            border-radius: 200px;
+            margin: 7vh 22vw 0vh -2vw;
+        }
+        .symbolname {
+            display: flex;
+            background-color: #f5f5f5;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0px;
+            color: #0a0102;
+            text-transform: uppercase;
+            margin: 2vh 4vw;
+        }
+        .registersignupcont {
+            display: flex;
+            width: 389px;
+            height: 425px;
+            background-color: #ffffff;
+            border: #e4e4e4 1px;
+            margin: -58vh 22vw;
+            .reg {
+                width: 72px;
+                height: 33px;
+                font-size: 25px;
+                font-weight: bold;
+                margin: 1vh 4vw;
+            }
+            .Signup {
+                width: 89px;
+                height: 33px;
+                font-size: 25px;
+                font-weight: bold;
+                margin: 1vh 0vw;
+            }
+        }
+    }
+}
