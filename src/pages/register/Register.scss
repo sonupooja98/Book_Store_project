@@ -1,7 +1,7 @@
 .Register {
     justify-items: center;
     justify-content: center;
-    margin: 4vh 24vw;
+    margin: 4vh 26vw;
    
     .inputcont {
         width: 252px;
@@ -20,7 +20,7 @@
         font-size: 18px;
     }
     .Barside{
-        margin: 2vh 5vw;        
+        margin: 2vh 9vw;        
     }
     .mainButton{
         display: grid;
@@ -34,9 +34,10 @@
             height: 37px;
             background-color: black;
         }
-        .googleButton{
-            width: 130px;
-            height: 45px;
+        .googlebutton{
+            width: 126px;
+            height: 37px;
+           
         }
     }
 }
