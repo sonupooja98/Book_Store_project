@@ -15,4 +15,8 @@ export const login = async (obj) => {
     );
     return response;
   };
+  export const getBooks =async()=>{
+    let response =await axios.get("https://bookstore.incubation.bridgelabz.com/bookstore_user/get/book")
+    return response;
+}
 

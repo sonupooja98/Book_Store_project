@@ -1,0 +1,60 @@
+@mixin basicContent {
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    color: white;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: #a03037;
+    // border: black 1px solid;
+    width: 100px;
+    height: 59px;
+    font-size: medium;
+}
+
+.homecontant {
+    width: 100%;
+        height: 844px;
+    .homeheadpart {
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        width: 100%;
+        height: 60px;
+        background-color: #a03037;
+        .bookLogo {
+            width: 31.04px;
+            height: 23.71px;
+            margin: 0vh 0vw 0vh 17vw;
+        }
+        .bookStore {
+            width: 91px;
+            height: 26px;
+            font-size: 20px;
+            color: white;
+           
+        }
+        .searchpart {
+            display: flex;
+            margin: 0vh 0vw 0vh 5vw;
+            .search {
+                width: 550px;
+                height: 33px;
+                outline: none;
+            }
+        }
+        .profilebox {
+            margin: 0vh 0vw 0vh 5vw;
+            .profile {
+                @include basicContent();
+            }
+        }
+        .shoppingCart {
+            @include basicContent();
+            margin:0vh 1vw;
+        }
+    }
+    .bookBundle {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+}

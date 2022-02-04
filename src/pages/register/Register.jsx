@@ -1,9 +1,23 @@
 import '../register/Register.scss'
-import React from 'react';
+import React  from 'react';
 import { login } from '../../services/userSevice';
+import { Button, TextField } from '@material-ui/core';
+
+   
+
 
 
 function Register() {
+    const email = /ingalahallipooja@gmail.com/;
+    const password = /Sdmpooja@23/;
+   
+    const [emailHelperText, setEmailHelperText] = React.useState("")
+    const [passwordHelperText, setPasswordHelperText] = React.useState("");
+    const [emailError, setEmailError] = React.useState(false);
+    const [passwordError, setPasswordError] = React.useState(false);
+
+
+
          
         const [update, setUpdate] = React.useState({email: ' ', password: ' ' })
     
@@ -13,10 +27,27 @@ function Register() {
         const changepassword = (e) => {
             setUpdate({...update,password:e.target.value})
         }
-
+        const submit = () => {
+            console.log("is it working")
+            if (email.test(update.email)) {
+                console.log("If working")
+                setEmailError(false);
+                setEmailHelperText(" ");
+            } else {
+                console.log("Error")
+                setEmailError(true);
+                setEmailHelperText("Enter an email")
+            }
+            if (password.test(update.password)) {
+                setPasswordError(false);
+                setPasswordHelperText(" ")
+            } else {
+                setPasswordError(true);
+                setPasswordHelperText("Enter a Password")
+            }
     
 
-        const submit = () => {
+        // const submit = () => {
             login(update).then((res)=>{
                 console.log(res)
                 
@@ -25,13 +56,16 @@ function Register() {
                 
             })
         }
+
   
 
         return (
             <div className='Register'>
-                {/* <p className='inRegister'>Register</p><br></br> */}
-                <input className='inputcont' type='text' placeholder='Email Id' helpertext='Email Id' onChange={changeemail}></input> <br></br>
-                <input className='passinputcont' type='password' placeholder='Password' helpertext='password' onChange={changepassword}></input>
+              
+                <TextField style={{ backgroundColor: 'white' }} className="emailInput" type='text' id="outlined-email" label="Email Id" variant="outlined"
+                onChange={changeemail} error={emailError} helperText={emailHelperText} />
+            <TextField style={{ backgroundColor: 'white' }} className="passInput" type='password' id="outlined-password" label="Password" variant="outlined"
+                onChange={changepassword} error={passwordError} helperText={passwordHelperText} />
                 <br></br>
                 <button className='Registerbutton' style={{ backgroundColor: '#A03037' }} onClick={submit}> Register </button>
                 <p className='Barside'>OR</p>
@@ -46,4 +80,4 @@ function Register() {
     }
 
 
-    export default Register;
+export default Register;

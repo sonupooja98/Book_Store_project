@@ -2,7 +2,7 @@ import React from 'react';
 import '../mainpage/Main.scss'
 import Register from '../register/Register';
 import Signup from '../signup/Signup';
-import Book from '../../assest/Book.png'
+import book from '../../assest/book.png'
 
 function Main() {
 
@@ -14,7 +14,7 @@ function Main() {
     return (
         <div className='firstContainer'>
             <div className='background'>
-                <img className="symbol" src={Book} alt="this is logo"></img>
+                <img className="symbol" src={book} alt="this is logo"></img>
                 <p className='symbolname'>online book shopping</p>
                 <div className='registersignupcont'>
                     {/* <Login /> */}
