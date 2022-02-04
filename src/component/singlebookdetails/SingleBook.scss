@@ -1,0 +1,150 @@
+.hower-container{
+    display: flex;
+    height: 70%;
+    width: 85%;
+    margin: 10vh 5vw 0vh -10vw ;
+    .left-container{
+        height: 80vh;
+        width: 40%;
+        background-color: white;
+        .image-container{
+            border: 1px solid #D1D1D1;
+            height: 60%;
+            width: 55%;
+            display: flex;
+            justify-content: center;  
+            margin: 0vh 12vw;       
+            #hower-img{
+                padding: 15%;
+            }
+        }
+        .btn-container{
+            display: flex;
+            width: 70%;
+            justify-content: space-between;
+            margin: 4vh 9vw; 
+          
+        }
+    }
+
+
+    .right-container{
+        height: 100%;
+        width: 65%;
+        margin: 0vh 0vw 0vh 2vw ;
+        .text-containt{ 
+            line-height: 2;
+            
+            
+            .title{
+                text-align: left; 
+                display: grid;
+                line-height: 2;
+            
+                #title1{
+                    font: normal normal normal 18px Roboto;
+                    letter-spacing: 0px;
+                    color: #0A0102;                   
+                }
+                #title2{
+                    font: normal normal normal 14px Roboto;
+                    letter-spacing: 0px;
+                    color: #878787; 
+                    line-height: 2;
+                }
+                .rating{
+                    display: flex;
+                    text-align: center;
+                    #number1{
+                        background-color: #388E3C;
+                        color: white;
+                        letter-spacing: 0px;
+                        font-size: 12px;
+                        width: 30px;
+                    }
+                    #number2{     
+                        color:#878787;
+                        letter-spacing: 0px;
+                        font-size: 10px;
+                    }
+                }
+                .price-container{
+                    display: flex;
+                    justify-content: space-around;
+                    text-align: center;
+                    width: 80px;
+                    height: auto;
+                    line-height: 3;
+                    #rs{
+                        font-weight: bold;
+                       font-size:14px;
+                    }
+                    #new-price{
+                        font-weight: bold;
+                        font-size:14px; 
+                        color:#0A0102
+                    }
+                    #old-price{
+                        color: #878787;
+                        font-size:12px;
+                        text-align: center;
+                        text-decoration: line-through; 
+                    }
+                }
+            
+            }
+        }
+        #line{
+            width: 110%;
+        }
+
+        .second-div{
+            width: 110%;
+            margin: 4vh 0vw 6vh 0vw;
+            #book-detial{
+                display: flex;
+                line-height: 3;
+                font-weight: bold;
+                color: #878787;
+            }
+            #lorem{
+                display: flex;
+                color:#373434;
+                font-size: 12px;
+                margin: 1vh 5vw;
+            }
+        }
+
+
+        .third-div{
+            width: 110%;
+            margin: 4vh 0vw 6vh 0vw;
+            #feedback{
+                display: flex;
+                line-height: 3;
+                color: #0A0102;
+                font-style:bold;
+            }
+        }
+
+        .rating-div{
+            height: 50px;
+            // background-color: gainsboro;
+            #rating{
+                display: flex;
+                margin: 1vh 0vw 1vh 0vw;
+            }
+            .star{
+                display: flex;
+                margin: 1vh 0vw 1vh 0vw;
+                width: 150px;
+                justify-content: space-between;
+            }
+            #review-message{
+                border: none;
+                width: 550px;
+                height: 50px;
+            }
+        }
+    }
+}
