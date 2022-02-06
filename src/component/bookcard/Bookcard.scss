@@ -6,7 +6,7 @@
     border: lightgray;
     // border-radius: 4px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     // gap:160px;
     margin: 0vh 10vw 0vh 15vw;
 
@@ -81,4 +81,9 @@
         
         }
     }
+}
+.sha{
+    box-shadow: -1px -1px 4px gray;
+    gap: 5px;
+    margin: 1vh 1vw;
 }

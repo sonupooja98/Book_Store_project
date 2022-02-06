@@ -34,7 +34,7 @@ function Bookcard() {
         <div className='bookcont'>
             {select ? <SingleBook item={viewBook}/> :
             bookArray.map((item,index)=>(
-                <div key={index}  value={select}>
+                <div className="sha" key={index}  value={select}>
                     <div className="book-container-part" onClick={()=>openImage(item)}>
                         <img className="image" src={book1}></img>
 
