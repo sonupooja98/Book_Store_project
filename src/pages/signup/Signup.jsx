@@ -72,7 +72,7 @@ function Signup() {
             }
     
         
-            login(update).then((res)=>{
+            userAxios(update).then((res)=>{
                 console.log(res)
                 
             }).catch((err)=>{

@@ -2,15 +2,17 @@ import '../register/Register.scss'
 import React from 'react';
 import { login } from '../../services/userSevice';
 import { Button, TextField } from '@material-ui/core';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 
 
 
 function Register() {
-    const email = /ingalahallipooja@gmail.com/;
-    const password = /Sdmpooja@23/;
+    let history= new useHistory();
+    const email = /sonapatila1998@gmail.com/;
+    const password = /Sona@1998/;
+    const [update, setUpdate] = React.useState({ email: ' ', password: ' ' })
 
     const [emailHelperText, setEmailHelperText] = React.useState("")
     const [passwordHelperText, setPasswordHelperText] = React.useState("");
@@ -20,7 +22,7 @@ function Register() {
 
 
 
-    const [update, setUpdate] = React.useState({ email: ' ', password: ' ' })
+    
 
     const changeemail = (e) => {
         setUpdate({ ...update, email: e.target.value })
@@ -52,6 +54,10 @@ function Register() {
         login(update).then((res) => {
             console.log(res)
 
+            localStorage.setItem('token', res.data.result.accessToken)
+            console.log(localStorage.setItem('token', res.data.result.accessToken))
+            history.push("/home")
+
         }).catch((err) => {
             console.log(err)
 
@@ -68,7 +74,7 @@ function Register() {
             <TextField style={{ backgroundColor: 'white' }} className="passInput" type='password' id="outlined-password" label="Password" variant="outlined"
                 onChange={changepassword} error={passwordError} helperText={passwordHelperText} />
             <br></br>
-            <Link to="/home"><button className='Registerbutton' style={{ backgroundColor: '#A03037' }} onClick={submit}> Register </button></Link>
+            <button className='Registerbutton' style={{ backgroundColor: '#A03037' }} onClick={submit}> Register </button>
             <p className='Barside'>OR</p>
 
             <div className='mainButton'>

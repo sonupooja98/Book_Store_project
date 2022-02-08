@@ -5,7 +5,21 @@ import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurpl
 import '../singlebookdetails/SingleBook.scss'
 import book1 from '../../assest/book1.png'
 
+import {addToCart} from '../../services/userSevice'
+
 function SingleBook(props) {
+
+    
+const [addBookcard, setAddBookcard] = React.useState([]);
+const bookId = (_id) => {
+    console.log(_id)
+    addToCart(props.item.item._id).then((res) => {
+        console.log(res)
+       
+    }).catch((err) => {
+        console.log(err)
+    })
+}
     return (
         <div className="hower-container">
             <div className='left-container'>
@@ -14,7 +28,7 @@ function SingleBook(props) {
                     <img id="hower-img" src={book1}></img>
                 </div>
                 <div className='btn-container'>
-                    <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained">ADD TO BAG</Button>
+                    <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"  onClick={() => bookId(props.item.item._id)}>ADD TO BAG</Button>
                     <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                 </div>
 
