@@ -58,3 +58,19 @@
         grid-template-columns: repeat(5,1fr);
     }
 }
+.secondBar{
+    display: flex;
+    align-items: center;
+    .books{
+        font-weight: bold;
+        font-size: 20px;
+        margin: 0vh 16.5vw;
+    }
+    .item{
+        font-size: 13px;
+        margin: 2.5vh 58vw 2.5vh -16vw;
+    }
+    .priceValue{
+
+    }
+}

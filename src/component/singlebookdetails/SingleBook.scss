@@ -10,10 +10,10 @@
         .image-container{
             border: 1px solid #D1D1D1;
             height: 60%;
-            width: 55%;
+            width:70%;
             display: flex;
             justify-content: center;  
-            margin: 0vh 12vw;       
+            margin: 0vh 5vw;       
             #hower-img{
                 padding: 15%;
             }
@@ -21,8 +21,10 @@
         .btn-container{
             display: flex;
             width: 70%;
-            justify-content: space-between;
-            margin: 4vh 9vw; 
+         
+            // justify-content:space-evenly;
+            margin: 4vh 5vw; 
+            // background-color: yellow;
           
         }
     }
@@ -150,5 +152,27 @@
 }
 .buttonUse{
     display: flex;
-    margin: 0vh -3vw;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    justify-content: space-evenly;
+    // margin: 0vh -3vw;
+  
+}
+.sub{
+    margin: 0vh 0vw 0vh 40vw;
+    background-color: #3371b5;
+}
+.qun{
+    width: 100px;
+   
+    
+}
+.wish-btn{
+    display: inline-flex;
+    
+    // grid-template-columns: repeat(2,1fr);
+    // font-size: 5px;
+    // width: 50%;
+    height: 50px;
 }

@@ -4,6 +4,8 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import '../singlebookdetails/SingleBook.scss'
 import book1 from '../../assest/book1.png'
+import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
+import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 
 
 import { addToCart, getTheCard ,cartItemQuantity} from '../../services/userSevice'
@@ -32,7 +34,7 @@ function SingleBook(props) {
             "quantityToBuy": quantity - 1,
           };
         
-          cartItemQuantity(data)
+          cartItemQuantity(cardIdDetails,data)
             .then((res) => {
                 console.log(res)
                 cartitem();
@@ -102,11 +104,11 @@ function SingleBook(props) {
                             :
                             (<div className='buttonUse'>
 
-                                <Button className='minus' onClick={bookDecrement} id={props.item.item._id}
-                                >-</Button>
-                                <Button> {quantity} </Button>
-                                <Button className='plus' onClick={bookIncrement} id={props.item.item._id}
-                                >+</Button>
+                                <Button className='qun' onClick={bookDecrement} id={props.item.item._id}
+                                ><RemoveCircleOutlineTwoToneIcon /></Button>
+                                <p className='qu'> {quantity} </p>
+                                <Button className='qun' onClick={bookIncrement} id={props.item.item._id}
+                                ><AddCircleOutlineTwoToneIcon /></Button>
 
                             </div>)
                     }
@@ -151,7 +153,9 @@ function SingleBook(props) {
                             <StarBorderPurple500OutlinedIcon />
                         </div>
                         <input id='review-message' type="text" placeholder='write your review'></input>
+                        <button className='sub'>Submit</button>
                     </div>
+                   
                 </div>
             </div>
         </div>
