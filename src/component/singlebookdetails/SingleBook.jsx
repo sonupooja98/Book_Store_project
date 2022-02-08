@@ -5,21 +5,88 @@ import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurpl
 import '../singlebookdetails/SingleBook.scss'
 import book1 from '../../assest/book1.png'
 
-import {addToCart} from '../../services/userSevice'
+
+import { addToCart, getTheCard ,cartItemQuantity} from '../../services/userSevice'
 
 function SingleBook(props) {
 
+
+    const [addBookcard, setAddBookcard] = React.useState([]);
+    const [getfilterArry, setgetfilterArry] = React.useState([]);
+    const [quantity, setQuantity] = React.useState(0);
+    const [cardIdDetails,setCartIdDetails] = React.useState([]);
+    const bookId = (_id) => {
+        console.log(_id)
+        addToCart(props.item.item._id).then((res) => {
+            console.log(res)
+
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+    console.log(props.item.item._id)
+
+
+    const bookDecrement = () => {
+        let data = {
+            "quantityToBuy": quantity - 1,
+          };
+        
+          cartItemQuantity(data)
+            .then((res) => {
+                console.log(res)
+                cartitem();
+                console.log("Show Cart - Item")
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
     
-const [addBookcard, setAddBookcard] = React.useState([]);
-const bookId = (_id) => {
-    console.log(_id)
-    addToCart(props.item.item._id).then((res) => {
-        console.log(res)
-       
-    }).catch((err) => {
-        console.log(err)
-    })
-}
+    const bookIncrement = () => {
+        let data = {
+            "quantityToBuy": quantity + 1,
+            
+          };
+        
+          cartItemQuantity(cardIdDetails,data)
+            .then((res) => {
+                console.log(res)
+                cartitem();
+                console.log("Show Cart + Item")
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+
+
+
+
+    const cartitem = () => {
+        getTheCard().then((res) => {
+            console.log(res)
+            let filterArry = res.data.result.filter((cart) => {
+
+                if (props.item.item._id === cart.product_id._id) {
+                    setQuantity(cart.quantityToBuy)
+                    setCartIdDetails(cart._id)
+                    return cart
+                }
+            })
+            setgetfilterArry(filterArry)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+    React.useEffect(() => {
+        cartitem();
+    },[quantity]);
+    console.log(getfilterArry)
+
+    
+ 
+
     return (
         <div className="hower-container">
             <div className='left-container'>
@@ -28,7 +95,21 @@ const bookId = (_id) => {
                     <img id="hower-img" src={book1}></img>
                 </div>
                 <div className='btn-container'>
-                    <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"  onClick={() => bookId(props.item.item._id)}>ADD TO BAG</Button>
+                    {
+                        getfilterArry.length === 0 ? (
+                            <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }}
+                                variant="contained" onClick={() => bookId(props.item.item._id)}>ADD TO BAG</Button>)
+                            :
+                            (<div className='buttonUse'>
+
+                                <Button className='minus' onClick={bookDecrement} id={props.item.item._id}
+                                >-</Button>
+                                <Button> {quantity} </Button>
+                                <Button className='plus' onClick={bookIncrement} id={props.item.item._id}
+                                >+</Button>
+
+                            </div>)
+                    }
                     <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                 </div>
 
@@ -49,28 +130,28 @@ const bookId = (_id) => {
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className='second-div'>
                     <span id="book-detial">Book Detail</span>
                     <p id="lorem">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quia architecto deserunt aliquid a quo non veniam,
-                                  repellendus numquam debitis commodi nulla. 
-                                  Laborum iusto fugiat consectetur voluptatum magni quos recusandae amet fugit, ad obcaecati!</p>
-                                  <hr id="line"/>
-                <div className="third-div">
-                    <span id="feedback"> Customer Feedback</span>
-                </div>
-
-                <div className="rating-div">
-                    <span id='rating'>overall rating</span>
-                    <div className='star'>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
+                        repellendus numquam debitis commodi nulla.
+                        Laborum iusto fugiat consectetur voluptatum magni quos recusandae amet fugit, ad obcaecati!</p>
+                    <hr id="line" />
+                    <div className="third-div">
+                        <span id="feedback"> Customer Feedback</span>
                     </div>
-                    <input id='review-message' type="text" placeholder='write your review'></input>
-                </div>
+
+                    <div className="rating-div">
+                        <span id='rating'>overall rating</span>
+                        <div className='star'>
+                            <StarBorderPurple500OutlinedIcon />
+                            <StarBorderPurple500OutlinedIcon />
+                            <StarBorderPurple500OutlinedIcon />
+                            <StarBorderPurple500OutlinedIcon />
+                            <StarBorderPurple500OutlinedIcon />
+                        </div>
+                        <input id='review-message' type="text" placeholder='write your review'></input>
+                    </div>
                 </div>
             </div>
         </div>
