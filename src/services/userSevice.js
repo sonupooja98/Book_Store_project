@@ -50,4 +50,8 @@ export const getwishlist=async()=>{
   let response = await axios.get(`https://bookstore.incubation.bridgelabz.com/bookstore_user/get_wishlist_items`,headerConfig)
   return response;
 }
+export const deleteBookss = async(id)=>{
+  let response  = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_wishlist_item/${id}`,headerConfig)
+  return response;
+}
 

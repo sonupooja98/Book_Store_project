@@ -8,7 +8,7 @@ import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwo
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 
 
-import { addToCart, getTheCard, cartItemQuantity,addwishlist} from '../../services/userSevice'
+import { addToCart, getTheCard, cartItemQuantity,addwishlist,getwishlist} from '../../services/userSevice'
 
 function SingleBook(props) {
 
@@ -34,12 +34,33 @@ function SingleBook(props) {
         console.log(_id)
         addwishlist(props.item.item._id).then((res)=>{
             console.log(res)
+            
         }).catch((err)=>{
             console.log(err)
         })
         
     }
     console.log(props.item.item._id)
+
+
+    const getWishlistItems =()=>{
+        getwishlist()
+        .then((res)=>{
+            console.log(res)
+            let filterWishListData=res.data.result.filter((wishCart)=>{
+                if(props.item.item._id === wishCart.product_id._id){
+                    console.log(wishCart.product_id._id)
+                    return wishCart;
+                }
+            })
+            setWishListId(filterWishListData);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+    }
+
 
 
     const bookDecrement = () => {
@@ -100,6 +121,7 @@ function SingleBook(props) {
 
     React.useEffect(() => {
         cartitem();
+        getWishlistItems();
     }, [quantity]);
     console.log(getfilterArry)
 

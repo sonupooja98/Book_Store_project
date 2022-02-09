@@ -1,59 +1,94 @@
-import React from 'react';
+import React from 'react'
+import book3 from '../../assest/book3.png'
+// import {getwishlist} from '../../services/userService';
+import { getwishlist } from '../../services/userSevice';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import '../wishlist/Wishlist.scss'
+import Header from '../header/Header';
+import {deleteBookss} from '../../services/userSevice';
 
 function Wishlist() {
 
-    
-	const removeBook = (bookId) => {
-	
-	};
+	const [wishList, setWishList] = React.useState([]);
+    const [quantity, setQuantity]= React.useState(false);
+	const [deleteBooks, setDeleteBooks] = React.useState(false);
 
+    const getWishlistItems =()=>{
+        getwishlist()
+        .then((res)=>{
+            console.log(res)
+            setWishList(res.data.result);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 
-  return <div>
-         <div className='secondBar'>
-                <p className="home">Home </p>
-                <p className="item">My wishlist</p>
-               
+    }
+
+	const deleteBook = (id) => {
+		deleteBookss(id)
+			.then((res) => {
+				console.log(res)
+				setDeleteBooks(!deleteBooks)
+				console.log("Delete Api working")
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+	}
+
+    React.useEffect(() => {
+        getWishlistItems();
+
+    }, [deleteBooks]);
+
+ 
+    return (
+        <div className='wishlist-container'>
+            <Header />
+            <div className='wishlist-inner-container'>
+
+                <div className='wishlist-header'>
+                    <span className='w-home'>Home/</span>
+                    <span className='w-list'>My WishList</span>
+                </div>
+                <div className='wishlist-headig'>
+                    My WishList ({wishList.length})
+                </div>
+                {wishList.map((item) => (
+                <div className='wishlist-bkdetial-container'>
+              
+                    
+                    <div className='wl-image-container'>
+                        <img className='wishlist-img' src={book3}></img>
+                    </div>
+                    <div className='wishlistBookInfoContainer'>
+                        <div className='wishlistBookName'>
+                            {item.product_id.bookName}
+                        </div>
+                        <div className='wishlistBookAuthor'>
+                            by {item.product_id.author}
+                        </div>
+                        <div className='wishlistBookPriceContainer'>
+                            <div className='wishlistBookNewPrice'>
+                                Rs. {item.product_id.discountPrice}
+                            </div>
+                            <div className='wishlistBookOldPrice'>
+                                Rs. {item.product_id.price}
+                            </div>
+                        </div>
+                    </div>
+					<div className='wl-delete-btn' onClick={() => deleteBook(item.product_id._id)}>
+                <DeleteOutlineOutlinedIcon/>
+                </div>
+                
+                </div>
+                ))}
             </div>
-            <div className='wish-list-heading' style={{marginTop:15}}>
-						My WishList ( {} )
-					</div>
-					<div className='wish-list-display-all'>
-					
-							<div className='wishlistSingleBookContainer'>
-								<div className='wishlistImgAndInfoContainer'>
-									<div className='wishlistBookImgContainer'>
-										<div className='wishlistBookImg'></div>
-									</div>
-									<div className='wishlistBookInfoContainer'>
-										<div className='wishlistBookName'>
-										
-										</div>
-										<div className='wishlistBookAuthor'>
-										
-										</div>
-										<div className='wishlistBookPriceContainer'>
-											<div className='wishlistBookNewPrice'>
-											
-											</div>
-											<div className='wishlistBookOldPrice'>
-											
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className='wishlistButtonsContainer'>
-									<div
-										className='removeFromWishlistBtn'
-										onClick={() => removeBook()}
-									>
-									
-									</div>
-								</div>
-							</div>
-						
-					</div>
 
-  </div>;
-}
 
-export default Wishlist;
+        </div>
+	)
+				}
+
+export default Wishlist
