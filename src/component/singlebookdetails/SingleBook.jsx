@@ -8,7 +8,7 @@ import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwo
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 
 
-import { addToCart, getTheCard ,cartItemQuantity} from '../../services/userSevice'
+import { addToCart, getTheCard, cartItemQuantity,addwishlist} from '../../services/userSevice'
 
 function SingleBook(props) {
 
@@ -16,7 +16,10 @@ function SingleBook(props) {
     const [addBookcard, setAddBookcard] = React.useState([]);
     const [getfilterArry, setgetfilterArry] = React.useState([]);
     const [quantity, setQuantity] = React.useState(0);
-    const [cardIdDetails,setCartIdDetails] = React.useState([]);
+    const [cardIdDetails, setCartIdDetails] = React.useState([]);
+
+    const [wishListId, setWishListId] = React.useState([]);
+
     const bookId = (_id) => {
         console.log(_id)
         addToCart(props.item.item._id).then((res) => {
@@ -26,15 +29,25 @@ function SingleBook(props) {
             console.log(err)
         })
     }
+
+    const wishbutton = (_id) =>{
+        console.log(_id)
+        addwishlist(props.item.item._id).then((res)=>{
+            console.log(res)
+        }).catch((err)=>{
+            console.log(err)
+        })
+        
+    }
     console.log(props.item.item._id)
 
 
     const bookDecrement = () => {
         let data = {
             "quantityToBuy": quantity - 1,
-          };
-        
-          cartItemQuantity(cardIdDetails,data)
+        };
+
+        cartItemQuantity(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
                 cartitem();
@@ -44,14 +57,14 @@ function SingleBook(props) {
             })
     }
 
-    
+
     const bookIncrement = () => {
         let data = {
             "quantityToBuy": quantity + 1,
-            
-          };
-        
-          cartItemQuantity(cardIdDetails,data)
+
+        };
+
+        cartItemQuantity(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
                 cartitem();
@@ -81,13 +94,17 @@ function SingleBook(props) {
             console.log(err)
         })
     }
+     
+    
+
+
     React.useEffect(() => {
         cartitem();
-    },[quantity]);
+    }, [quantity]);
     console.log(getfilterArry)
 
-    
- 
+
+
 
     return (
         <div className="hower-container">
@@ -112,7 +129,16 @@ function SingleBook(props) {
 
                             </div>)
                     }
-                    <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
+                    
+                            <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"
+                                onClick={() => wishbutton(props.item.item._id)}>
+
+                                <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
+                        
+                     
+                        
+                    
+
                 </div>
 
             </div>
@@ -155,7 +181,7 @@ function SingleBook(props) {
                         <input id='review-message' type="text" placeholder='write your review'></input>
                         <button className='sub'>Submit</button>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

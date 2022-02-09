@@ -42,4 +42,12 @@ export const cartItemQuantity = async (d1,d2) =>{
   let response = await axios.put(`https://bookstore.incubation.bridgelabz.com/bookstore_user/cart_item_quantity/${d1}`,d2,headerConfig)
   return response;
 }
+export const addwishlist=async(data)=>{
+  let response =await axios.post(`https://bookstore.incubation.bridgelabz.com/bookstore_user/add_wish_list/${data}`,data,headerConfig)
+  return response;
+}
+export const getwishlist=async()=>{
+  let response = await axios.get(`https://bookstore.incubation.bridgelabz.com/bookstore_user/get_wishlist_items`,headerConfig)
+  return response;
+}
 
