@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Orderplaced from './component/Orderplaced/Orderplaced';
+
 import Main from './pages/mainpage/Main';
 import Bookcard from './component/bookcard/Bookcard';
 // import Home from './pages/home/Home';
 import Wishlist from './component/wishlist/Wishlist';
+import Cart from './component/cart/Cart';
 
 
 import Home from './pages/home/Home';
@@ -12,20 +15,21 @@ import {
 } from 'react-router-dom';
 function App() {
   return (
-    // <div className="App">
-    //  {/* <Main /> */}
-    //  <Home />
-    //  {/* <Bookcard /> */}
+    <div className="App">
+     
 
-    // </div>
-    <BrowserRouter >
+     
+     <BrowserRouter >
     <Switch>
-    <Route path='/' component={Main} exact />
-    <Route path='/home' component={Home} />
+     <Route path='/' component={Main} exact />
+     <Route path='/home' component={Home} />
     <Route path='/wishlist' component={Wishlist} />
+    <Route path='/cart' component={Cart} />
       
-    </Switch>
+     </Switch>
     </BrowserRouter>
+     {/* <Orderplaced /> */}
+   </div>
   );
 }
 

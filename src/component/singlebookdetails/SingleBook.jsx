@@ -7,10 +7,14 @@ import book1 from '../../assest/book1.png'
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 
+import { useHistory } from "react-router-dom";
+
 
 import { addToCart, getTheCard, cartItemQuantity,addwishlist,getwishlist} from '../../services/userSevice'
 
 function SingleBook(props) {
+
+    let history = new useHistory();
 
 
     const [addBookcard, setAddBookcard] = React.useState([]);

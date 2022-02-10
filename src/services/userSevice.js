@@ -55,3 +55,8 @@ export const deleteBookss = async(id)=>{
   return response;
 }
 
+export const editCustomerDetailsApi = async(data)=>{
+  let response = await axios.put(`https://bookstore.incubation.bridgelabz.com/bookstore_user/edit_user`,data,headerConfig)
+  return response;
+}
+

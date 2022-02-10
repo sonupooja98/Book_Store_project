@@ -7,7 +7,11 @@ import '../wishlist/Wishlist.scss'
 import Header from '../header/Header';
 import {deleteBookss} from '../../services/userSevice';
 
+import { useHistory } from "react-router-dom";
+
 function Wishlist() {
+
+    let history = new useHistory();
 
 	const [wishList, setWishList] = React.useState([]);
     const [quantity, setQuantity]= React.useState(false);
@@ -35,6 +39,10 @@ function Wishlist() {
 			.catch((err) => {
 				console.log(err)
 			})
+	}
+
+    const home =()=>{
+		history.push('/home')
 	}
 
     React.useEffect(() => {
