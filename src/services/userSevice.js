@@ -59,4 +59,8 @@ export const editCustomerDetailsApi = async(data)=>{
   let response = await axios.put(`https://bookstore.incubation.bridgelabz.com/bookstore_user/edit_user`,data,headerConfig)
   return response;
 }
+export const deletcart = async(id)=>{
+  let response = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_cart_item/${id}`,headerConfig)
+  return response;
+}
 
