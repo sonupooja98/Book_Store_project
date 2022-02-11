@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../header/Header'
-import book5 from '../../assest/book5.png'
+import book1 from '../../assest/book1.png'
 import { Button } from '@material-ui/core'
 import {
     cartItemQuantity, getTheCard
@@ -108,7 +108,7 @@ function Cart(props) {
                     <div>
                         <div className='imageAndDetails'>
                             <div>
-                                <img className='book5' src={book5}></img>
+                                <img className='book5' src={book1}></img>
                             </div>
                             <div>
                                 <div className='cartBookDetails'>
