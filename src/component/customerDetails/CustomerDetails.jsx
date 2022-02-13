@@ -21,6 +21,7 @@ function CustomerDetails(props) {
     const [city, setCity] = React.useState("");
     const [state, setState] = React.useState("");
     const [type, setType] = React.useState("");
+    const [openOrderSummery, setOpenOrderSummery] = React.useState(false);
 
     const [addressObj, setAddressObj] = React.useState({
 
@@ -64,10 +65,16 @@ function CustomerDetails(props) {
             });
     };
 
+    const continueOrder = () => {
+        setOpenOrderSummery(!openOrderSummery)
+    }
+
 
     React.useEffect(() => {
         loadCustomerdata();
     }, []);
+
+    
 
     return (
         <div className="validation-box">
@@ -80,7 +87,7 @@ function CustomerDetails(props) {
             <div className="RadioButtons">
                 <FormControl component="fieldset">
                     <FormLabel style={{ paddingRight: "250px" }} component="legend">
-                        Type
+                        {/* Type */}
                     </FormLabel>
                     <RadioGroup
                         row

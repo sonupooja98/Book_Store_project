@@ -3,7 +3,7 @@ import Header from '../header/Header'
 import book1 from '../../assest/book1.png'
 import { Button } from '@material-ui/core'
 import {
-    cartItemQuantity, getTheCard,deletcart
+    cartItemQuantity, getTheCard,deletcart,orderDetails
 } from '../../services/userSevice';
 import CustomerDetails from '../customerDetails/CustomerDetails';
 
@@ -31,6 +31,9 @@ function Cart() {
     let history = useHistory();
     const openHome =()=>{
         history.push('/home');
+    }
+    const goOderplace =()=>{
+        history.push('/orderplaced');
     }
    
 
@@ -139,8 +142,38 @@ function Cart() {
     }
 
     const continueOrder = () => {
-        setOpenOrderSummery(openOrderSummery)
+        setOpenOrderSummery(!openOrderSummery)
     }
+
+    const checkoutOrder = () => {
+
+
+        let array_ordered_books = [];
+
+        filterArray.map((element) => {
+            let ordered_book = {
+                product_id: element._id,
+                product_name: element.bookName,
+                product_quantity: element.quantityToBuy,
+                product_price: element.price,
+            };
+            console.log(element._id)
+            return array_ordered_books.push(ordered_book);
+        });
+
+        let orderObj = {
+            orders: array_ordered_books,
+        };
+        orderDetails(orderObj)
+            .then((response) => {
+                console.log(response.data.message, "order items", response.data.result);
+                console.log("orderdetialcalled")
+                history.push('/orderDone')
+            })
+            .catch((err) => {
+                console.warn(err);
+            });
+    };
 
 
     React.useEffect(() => {
@@ -235,6 +268,41 @@ function Cart() {
 
 
             </div>
+
+            <div className="OrderDetailContainer2">
+                    {!openOrderSummery ? (
+                        <h4 ></h4>
+                    ) : (
+                        <div className="order-smr-Container">
+                            <p className="txt">Order Summary </p>
+                            {filterArray.filter(item => item.product_id !== null).map((product, index) => (
+                                <div className="summer-img" key={index}>
+                                    <div className="bookImgDiv">
+                                        <img className='theImage' src={book1}></img>
+                                    </div>
+                                    <div className="order-dtl-container">
+                                        <b className='bookName'>{product.product_id.bookName} </b>
+                                        <p className='author'>by-{product.product_id.author}</p>
+                                        <span style={{ width: "50px" }}>
+                                            <b className='discountPrice'>Rs. {product.product_id.discountPrice} </b>
+                                        </span>
+                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del>
+                                    </div>
+                                </div>
+                            ))}
+                            <div className="checkout-btn">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={checkoutOrder}
+                                    onClick={goOderplace}
+                                >
+                                    Checkout
+                                </Button>
+                            </div>
+                        </div>
+                    )}
+                </div>
         </div>
   )
 }

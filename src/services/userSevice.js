@@ -63,4 +63,8 @@ export const deletcart = async(id)=>{
   let response = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_cart_item/${id}`,headerConfig)
   return response;
 }
+export const orderDetails =async (data)=>{
+  let response = await axios.post(`https://bookstore.incubation.bridgelabz.com/bookstore_user/add/order`,data,headerConfig)
+  return response;
+}
 

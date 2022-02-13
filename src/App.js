@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Orderplaced from './component/Orderplaced/Orderplaced';
+import Orderplaced from './component/orderplaced/Orderplaced';
 
 import Main from './pages/mainpage/Main';
 import Bookcard from './component/bookcard/Bookcard';
@@ -25,6 +25,8 @@ function App() {
      <Route path='/home' component={Home} />
     <Route path='/wishlist' component={Wishlist} />
     <Route path='/cart' component={Cart} />
+    <Route path='/orderplaced' component={Orderplaced} />
+    
       
      </Switch>
     </BrowserRouter>
