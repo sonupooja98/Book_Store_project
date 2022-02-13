@@ -5,8 +5,9 @@
     margin: 10vh 5vw 0vh -10vw ;
     .left-container{
         height: 80vh;
-        width: 40%;
-        background-color: white;
+        width: 47%;
+        // background-color: white;
+        
         .image-container{
             border: 1px solid #D1D1D1;
             height: 60%;
@@ -21,9 +22,9 @@
         .btn-container{
             display: flex;
             width: 70%;
-         
+            justify-content: space-between;
             // justify-content:space-evenly;
-            margin: 4vh 5vw; 
+            margin: 2vh 5vw; 
             // background-color: yellow;
           
         }

@@ -2,12 +2,23 @@ import React from 'react'
 
 import '../header/Header.scss'
 import icon from '../../assest/icon.png'
+import { useHistory } from "react-router-dom";
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PermIdentityTwoToneIcon from '@mui/icons-material/PermIdentityTwoTone'
 
+
 function Header() {
+
+    let history = useHistory();
+    const openCart =()=>{
+        history.push('/cart');
+    }
+
+    const clickCart =() =>{
+        history.push('/cart')
+    }
   return (
     <div className='homecontant'>
     <div className='homeheadpart'>
@@ -23,7 +34,7 @@ function Header() {
                 Pooja
             </div>
         </div>
-        <div className='shoppingCart'>
+        <div className='shoppingCart' onClick={openCart}>
             <ShoppingCartOutlinedIcon />
             Cart
         </div>

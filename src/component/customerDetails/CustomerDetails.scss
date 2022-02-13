@@ -4,7 +4,8 @@
     height: 470px;
     border: 1px solid black;
     margin: 0vh 0vw 0vh 0vw;
-  }
+   
+
   
   .customer-details-title {
     width: 90%;
@@ -14,16 +15,18 @@
     margin-left: 40px;
     font-weight: 600;
     height: 60px;
+    background-color: pink;
+ 
   }
   .addnewaddress {
     width: 150px;
-    height: 35px;
+    height: 53px;
     color: #a03037;
     font-weight: normal;
     border: 1.5px solid #a03037;
     border-radius: 2px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 16px;
   }
   
   .inputfields-container {
@@ -77,6 +80,7 @@
 
   .RadioButtons{
     padding-left: 30px;
+    margin: 0vh 0vw 0vh -38vw;
   }
 
   .orderr{
@@ -92,3 +96,4 @@
     color: #333232;
     font-size: 18px;
   }
+}

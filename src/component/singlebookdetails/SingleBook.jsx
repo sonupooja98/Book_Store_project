@@ -14,7 +14,10 @@ import { addToCart, getTheCard, cartItemQuantity,addwishlist,getwishlist} from '
 
 function SingleBook(props) {
 
-    let history = new useHistory();
+    let history = useHistory();
+    const openWishlist =()=>{
+        history.push('/wishlist');
+    }
 
 
     const [addBookcard, setAddBookcard] = React.useState([]);
@@ -157,7 +160,7 @@ function SingleBook(props) {
                     }
                     
                             <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"
-                                onClick={() => wishbutton(props.item.item._id)}>
+                                onClick={() => wishbutton(props.item.item._id)} onClick={openWishlist}>
 
                                 <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                         
