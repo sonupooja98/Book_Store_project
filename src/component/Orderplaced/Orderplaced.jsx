@@ -3,9 +3,17 @@ import './Orderplaced.scss';
 import Header from '../header/Header';
 import { Button } from "@mui/material";
 import orderplaced from "../../assest/orderplaced.jpeg";
+import { useHistory } from "react-router-dom";
 
 
 function Orderplaced() {
+
+  let history = new useHistory();
+
+  const openHome =()=>{
+    history.push('/home');
+}
+
   return (
     <>
     <div>
@@ -36,6 +44,7 @@ function Orderplaced() {
           </table>
         </div>
         <Button
+          onClick={openHome}
           style={{
             marginTop: "50px",
             padding: "10px 60px",

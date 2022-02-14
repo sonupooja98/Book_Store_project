@@ -13,7 +13,7 @@ import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutl
 import { useHistory } from "react-router-dom";
 
 import '../cart/Cart.scss'
-// import Footer from '../footer/Footer';
+import Footer from '../footer/Footer';
 import Home from '../../pages/home/Home';
 
 function Cart() {
@@ -26,6 +26,7 @@ function Cart() {
     const [openAddress, setOpenAddress] = React.useState(false);
     const [openOrderSummery, setOpenOrderSummery] = React.useState(false);
     const [quantity, setQuantity] = React.useState([filterArray.quantityToBuy]);
+    const [showButton, setShowButton] = React.useState(true);
 
 
     let history = useHistory();
@@ -138,7 +139,9 @@ function Cart() {
     }
 
     const orderPlaced = () => {
+        
         setOpenAddress(!openAddress)
+        setShowButton(false);
     }
 
     const continueOrder = () => {
@@ -181,13 +184,13 @@ function Cart() {
     }, []);
     return (
         <div className='cart-mainContainer'>
-            <Header/>
+            <Header />
             <div className='homeLine'>
-                 <span className='c-home' onClick={openHome}>Home/</span>
-                 <span className='c-list'>My cart</span>
-                </div>
+                <span className='c-home' onClick={openHome}>Home/</span>
+                <span className='c-list'>My cart</span>
+            </div>
             <div className='cart-container'>
-               
+
                 <div className='bookDetailsBox'>
                     <div className='firstLine'>
                         <span className='cart'>My cart ({filterArray.length}) </span>
@@ -198,49 +201,49 @@ function Cart() {
                         </location>
                     </div>
                     {
-                            filterArray.filter(item => item.product_id !== null).map((item, index) => (
-                    <div className='bookdetial-div'>
-                  
-                        <div className='bookdetial-container'>
-                            <div className='cart-imageContainer'>
-                                <img className='cart-img' src={book1}></img>
-                            </div>
-                      
-                            <div>
+                        filterArray.filter(item => item.product_id !== null).map((item, index) => (
+                            <div className='bookdetial-div'>
 
-                                <div className='cartBookDetails'>
-                                    <span className='cartTitle'>
-                                        {item.product_id.bookName}
-                                    </span> <br></br>
-                                    <span className='cartAuthor'>by 
-                                        {item.product_id.author}
-                                    </span> <br></br>
-                                    <div className='cart-price'> 
-                                    <span className='cartNewPrice'>
-                                        {item.product_id.price}
-                                    </span><br></br>
-                                    <span className='cartOldPrice'>rs2000</span> <br></br>
+                                <div className='bookdetial-container'>
+                                    <div className='cart-imageContainer'>
+                                        <img className='cart-img' src={book1}></img>
                                     </div>
-                                    <div className='buttonFour'>
 
-                                    <Button className='minus' onClick={() => bookDecrementItem(item)} 
-                                    > <RemoveCircleOutlineTwoToneIcon /> </Button>
-                                    <Button className='cartcount'> {item.quantityToBuy} </Button>
-                                    <Button className='plus' onClick={() => bookIncrementItem(item)}
-                                    > <AddCircleOutlineTwoToneIcon /> </Button>
-                                    <Button className='remove' onClick={() => deleteCartItem(item)}
-                                    > Remove </Button>
+                                    <div>
+
+                                        <div className='cartBookDetails'>
+                                            <span className='cartTitle'>
+                                                {item.product_id.bookName}
+                                            </span> <br></br>
+                                            <span className='cartAuthor'>by
+                                                {item.product_id.author}
+                                            </span> <br></br>
+                                            <div className='cart-price'>
+                                                <span className='cartNewPrice'>
+                                                    {item.product_id.price}
+                                                </span><br></br>
+                                                <span className='cartOldPrice'>rs2000</span> <br></br>
+                                            </div>
+                                            <div className='buttonFour'>
+
+                                                <Button className='minus' onClick={() => bookDecrementItem(item)}
+                                                > <RemoveCircleOutlineTwoToneIcon /> </Button>
+                                                <Button className='cartcount'> {item.quantityToBuy} </Button>
+                                                <Button className='plus' onClick={() => bookIncrementItem(item)}
+                                                > <AddCircleOutlineTwoToneIcon /> </Button>
+                                                <Button className='remove' onClick={() => deleteCartItem(item)}
+                                                > Remove </Button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
 
                                 </div>
-                                </div>
-                                
+
                             </div>
-
-                        </div>
-                           
-                    </div>
-                    ))}
-                    {filterArray.length !== 0 ? (
+                        ))}
+                    {filterArray.length !== 0  && showButton ? (
                         <Button className='submit' variant="contained" onClick={orderPlaced} >Place Order</Button>
                     ) : null
                     }
@@ -264,29 +267,39 @@ function Cart() {
                     )}
 
 
-                </div>
-
-
-            </div>
-
-            <div className="OrderDetailContainer2">
+             
+     
+            <div className="Ordersummarycontainer">
+                
                     {!openOrderSummery ? (
-                        <h4 ></h4>
+                         <p className="txt"></p>
+                       
                     ) : (
                         <div className="order-smr-Container">
-                            <p className="txt">Order Summary </p>
+                             {/* <div className='order'> */}
+                             <div className='summary-t'>
+                                    Order summary
+                                {/* </div> */}
+                                </div>
+                            {/* <p className="txt">Order Summary </p> */}
                             {filterArray.filter(item => item.product_id !== null).map((product, index) => (
-                                <div className="summer-img" key={index}>
-                                    <div className="bookImgDiv">
-                                        <img className='theImage' src={book1}></img>
+                                <div className="summery-innr-contain" key={index}>
+                                    <div className="imgDiv">
+                                        <img className='summeryimage' src={book1}></img>
                                     </div>
                                     <div className="order-dtl-container">
                                         <b className='bookName'>{product.product_id.bookName} </b>
                                         <p className='author'>by-{product.product_id.author}</p>
-                                        <span style={{ width: "50px" }}>
-                                            <b className='discountPrice'>Rs. {product.product_id.discountPrice} </b>
+                                        <div className='cart-price'>
+                                                <span className='cartNewPrice'>
+                                                RS {product.product_id.discountPrice}
+                                                </span>
+                                                <span className='cartOldPrice'>Rs{product.product_id.price}</span> 
+                                            </div>
+                                        {/* <span >
+                                            <b className='newPrice'>Rs. {product.product_id.discountPrice} </b>
                                         </span>
-                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del>
+                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del> */}
                                     </div>
                                 </div>
                             ))}
@@ -294,6 +307,7 @@ function Cart() {
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    
                                     onClick={checkoutOrder}
                                     onClick={goOderplace}
                                 >
@@ -303,8 +317,15 @@ function Cart() {
                         </div>
                     )}
                 </div>
+                </div>
+                </div>
+                <div className='foot'>
+                    <Footer />
+                </div>
         </div>
-  )
+
+
+    )
 }
 
 export default Cart

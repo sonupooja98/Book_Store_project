@@ -59,6 +59,7 @@ function CustomerDetails(props) {
         editCustomerDetailsApi(addressObj)
             .then((response) => {
                 console.log("updated address ", response);
+                props.continueOrder(true)
             })
             .catch((err) => {
                 console.warn(err);
@@ -169,10 +170,10 @@ function CustomerDetails(props) {
 
             <div className="continue-button-container">
                 <div className="continue-button" onClick={updateCustomerdetails}>
-                    <p onClick={() => props.continueOrder(true)}>CONTINUE</p><br></br>
+                    <p >CONTINUE</p><br></br>
                 </div>
             </div>
-
+{/* 
             <div className='orderr'>
                 <div className='summaryy'>
                     Order summary
@@ -180,7 +181,7 @@ function CustomerDetails(props) {
             </div>
             <div>
                 <Footer />
-            </div>
+            </div> */}
         </div>
     );
 }
