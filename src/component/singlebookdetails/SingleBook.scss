@@ -1,25 +1,25 @@
-.hower-container{
+.Book-container{
     display: flex;
     height: 70%;
     width: 85%;
     margin: 10vh 5vw 0vh -10vw ;
-    .left-container{
+    .Left-cont{
         height: 80vh;
         width: 47%;
         // background-color: white;
         
-        .image-container{
+        .Image-cont{
             border: 1px solid #D1D1D1;
             height: 60%;
             width:70%;
             display: flex;
             justify-content: center;  
             margin: 0vh 5vw;       
-            #hower-img{
+            #Hower{
                 padding: 15%;
             }
         }
-        .btn-container{
+        .Button-contant{
             display: flex;
             width: 70%;
             justify-content: space-between;
@@ -31,47 +31,47 @@
     }
 
 
-    .right-container{
+    .Hower-Book{
         height: 100%;
         width: 65%;
         margin: 0vh 0vw 0vh 2vw ;
-        .text-containt{ 
+        .Details{ 
             line-height: 2;
             
             
-            .title{
+            .Title-part{
                 text-align: left; 
                 display: grid;
                 line-height: 2;
             
-                #title1{
+                #Title-one{
                     font: normal normal normal 18px Roboto;
                     letter-spacing: 0px;
                     color: #0A0102;                   
                 }
-                #title2{
+                #Title-second{
                     font: normal normal normal 14px Roboto;
                     letter-spacing: 0px;
                     color: #878787; 
                     line-height: 2;
                 }
-                .rating{
+                .Rating{
                     display: flex;
                     text-align: center;
-                    #number1{
+                    #Num-one{
                         background-color: #388E3C;
                         color: white;
                         letter-spacing: 0px;
                         font-size: 12px;
                         width: 30px;
                     }
-                    #number2{     
+                    #Num-two{     
                         color:#878787;
                         letter-spacing: 0px;
                         font-size: 10px;
                     }
                 }
-                .price-container{
+                .Price-details{
                     display: flex;
                     justify-content: space-around;
                     text-align: center;
@@ -101,16 +101,16 @@
             width: 110%;
         }
 
-        .second-div{
+        .Last-infrom{
             width: 110%;
             margin: 4vh 0vw 6vh 0vw;
-            #book-detial{
+            #Book-infromation{
                 display: flex;
                 line-height: 3;
                 font-weight: bold;
                 color: #878787;
             }
-            #lorem{
+            #pargrap{
                 display: flex;
                 color:#373434;
                 font-size: 12px;
@@ -119,10 +119,10 @@
         }
 
 
-        .third-div{
+        .final-cont{
             width: 110%;
             margin: 4vh 0vw 6vh 0vw;
-            #feedback{
+            #customr-infromation{
                 display: flex;
                 line-height: 3;
                 color: #0A0102;
@@ -130,20 +130,20 @@
             }
         }
 
-        .rating-div{
+        .Rating-part{
             height: 50px;
             // background-color: gainsboro;
-            #rating{
+            #Rating{
                 display: flex;
                 margin: 1vh 0vw 1vh 0vw;
             }
-            .star{
+            .Icons-list{
                 display: flex;
                 margin: 1vh 0vw 1vh 0vw;
                 width: 150px;
                 justify-content: space-between;
             }
-            #review-message{
+            #Review-message{
                 border: none;
                 width: 550px;
                 height: 50px;
@@ -151,7 +151,7 @@
         }
     }
 }
-.buttonUse{
+.ButtonUse{
     display: flex;
     align-items: center;
     width: 50%;
@@ -164,16 +164,12 @@
     margin: 0vh 0vw 0vh 40vw;
     background-color: #3371b5;
 }
-.qun{
+.Book-qul{
     width: 100px;
    
     
 }
-.wish-btn{
+.wish-button{
     display: inline-flex;
-    
-    // grid-template-columns: repeat(2,1fr);
-    // font-size: 5px;
-    // width: 50%;
-    height: 50px;
+     height: 50px;
 }

@@ -136,30 +136,30 @@ function SingleBook(props) {
 
 
     return (
-        <div className="hower-container">
-            <div className='left-container'>
+        <div className="Book-container">
+            <div className='Left-cont'>
 
-                <div className="image-container">
-                    <img id="hower-img" src={book1}></img>
+                <div className="Image-cont">
+                    <img id="Hower" src={book1}></img>
                 </div>
-                <div className='btn-container'>
+                <div className='Button-contant'>
                     {
                         getfilterArry.length === 0 ? (
-                            <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }}
+                            <Button className='Bag-button' style={{ backgroundColor: '#A03037', color: 'white' }}
                                 variant="contained" onClick={() => bookId(props.item.item._id)}>ADD TO BAG</Button>)
                             :
-                            (<div className='buttonUse'>
+                            (<div className='ButtonUse'>
 
-                                <Button className='qun' onClick={bookDecrement} id={props.item.item._id}
+                                <Button className='Book-Dec' onClick={bookDecrement} id={props.item.item._id}
                                 ><RemoveCircleOutlineTwoToneIcon /></Button>
-                                <p className='qu'> {quantity} </p>
-                                <Button className='qun' onClick={bookIncrement} id={props.item.item._id}
+                                <p className='Book-qul'> {quantity} </p>
+                                <Button className='Book-Inc' onClick={bookIncrement} id={props.item.item._id}
                                 ><AddCircleOutlineTwoToneIcon /></Button>
 
                             </div>)
                     }
                     
-                            <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"
+                            <Button className='wish-button' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"
                                 onClick={() => wishbutton(props.item.item._id)} onClick={openWishlist}>
 
                                 <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
@@ -171,16 +171,16 @@ function SingleBook(props) {
                 </div>
 
             </div>
-            <div className='right-container'>
-                <div className="text-containt">
-                    <div className="title">
-                        <span id='title1'>{props.item.item.bookName}</span>
-                        <span id='title2'>{props.item.item.author}</span>
-                        <div className="rating">
-                            <span id='number1'>4.5*</span>
-                            <span id='number2'>(20)</span>
+            <div className='Hower-Book'>
+                <div className="Details">
+                    <div className="Title-part">
+                        <span id='Title-one'>{props.item.item.bookName}</span>
+                        <span id='Title-second'>{props.item.item.author}</span>
+                        <div className="Rating">
+                            <span id='Num-one'>4.5*</span>
+                            <span id='Num-two'>(20)</span>
                         </div>
-                        <div className="price-container">
+                        <div className="Price-details">
                             <span id='rs'>Rs.</span>
                             <span id='new-price'>{props.item.item.price}</span>
                             <span id='old-price'> (2000) </span>
@@ -188,26 +188,26 @@ function SingleBook(props) {
                     </div>
                 </div>
                 <hr />
-                <div className='second-div'>
-                    <span id="book-detial">Book Detail</span>
-                    <p id="lorem">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quia architecto deserunt aliquid a quo non veniam,
+                <div className='Last-infrom'>
+                    <span id="Book-infromation">Book Detail</span>
+                    <p id="pargrap">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quia architecto deserunt aliquid a quo non veniam,
                         repellendus numquam debitis commodi nulla.
                         Laborum iusto fugiat consectetur voluptatum magni quos recusandae amet fugit, ad obcaecati!</p>
-                    <hr id="line" />
-                    <div className="third-div">
-                        <span id="feedback"> Customer Feedback</span>
+                    <hr id="Line" />
+                    <div className="final-cont">
+                        <span id="customr-infromation"> Customer Feedback</span>
                     </div>
 
-                    <div className="rating-div">
-                        <span id='rating'>overall rating</span>
-                        <div className='star'>
+                    <div className="Rating-part">
+                        <span id='Rating'>overall rating</span>
+                        <div className='Icons-list'>
                             <StarBorderPurple500OutlinedIcon />
                             <StarBorderPurple500OutlinedIcon />
                             <StarBorderPurple500OutlinedIcon />
                             <StarBorderPurple500OutlinedIcon />
                             <StarBorderPurple500OutlinedIcon />
                         </div>
-                        <input id='review-message' type="text" placeholder='write your review'></input>
+                        <input id='Review-message' type="text" placeholder='write your review'></input>
                         <button className='sub'>Submit</button>
                     </div>
 

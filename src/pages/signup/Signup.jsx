@@ -85,12 +85,18 @@ function Signup() {
            
         <TextField className='fullName' type='text' variant="outlined" label="First Name"
             onChange={changeName} error={nameError} helperText={nameHelperText}/>
+
+
             <TextField className='emailInput' type='email' variant="outlined" label="Email Id"
             onChange={changeEmail} error={emailError} helperText={emailHelperText}/>
+
+
             <TextField className='passwordSignup' type='password' variant="outlined" label="Password"
             onChange={changePassword} error={passwordError} helperText={passwordHelperText}/>
+
             <TextField className='numSignup' type='number' variant="outlined" label="Number"
             onChange={changeNumber} error={numberError} helperText={numberHelperText}/>
+            
             <button className='signupButton' style={{ backgroundColor: '#A03037' }}  onClick={submit}> SignUp </button>
         </div>
     </div>;

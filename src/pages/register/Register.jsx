@@ -71,9 +71,11 @@ function Register() {
 
             <TextField style={{ backgroundColor: 'white' }} className="emailInput" type='text' id="outlined-email" label="Email Id" variant="outlined"
                 onChange={changeemail} error={emailError} helperText={emailHelperText} />
+           
             <TextField style={{ backgroundColor: 'white' }} className="passInput" type='password' id="outlined-password" label="Password" variant="outlined"
                 onChange={changepassword} error={passwordError} helperText={passwordHelperText} />
             <br></br>
+            
             <button className='Registerbutton' style={{ backgroundColor: '#A03037' }} onClick={submit}> Register </button>
             <p className='Barside'>OR</p>
 

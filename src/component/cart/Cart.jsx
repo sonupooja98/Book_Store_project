@@ -59,7 +59,6 @@ function Cart() {
         cartItemQuantity(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
-                // console.log(res)
                 console.log(data)
                 showCartItem();
                 console.log("Show Cart - Item")
@@ -88,7 +87,7 @@ function Cart() {
         cartItemQuantity(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
-                // console.log(res)
+             
                 console.log(data)
                 showCartItem();
                 console.log("Show Cart + Item")
@@ -129,7 +128,6 @@ function Cart() {
         deletcart(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
-                // console.log(res)
                 console.log(data)
                 showCartItem();
                 
@@ -182,47 +180,49 @@ function Cart() {
     React.useEffect(() => {
         showCartItem();
     }, []);
+
+
     return (
-        <div className='cart-mainContainer'>
+        <div className='main-contaner'>
             <Header />
-            <div className='homeLine'>
+            <div className='Home-contaner'>
                 <span className='c-home' onClick={openHome}>Home/</span>
                 <span className='c-list'>My cart</span>
             </div>
-            <div className='cart-container'>
+            <div className='cart-infromation'>
 
-                <div className='bookDetailsBox'>
-                    <div className='firstLine'>
+                <div className='BookDetails'>
+                    <div className='FirstLine'>
                         <span className='cart'>My cart ({filterArray.length}) </span>
                         <location className='location'>
-                            <div className='bridgeLabz'>
+                            <div className='address'>
                                 <LocationOnTwoToneIcon /> BridgeLabz Solutions LLP, No...
                             </div>
                         </location>
                     </div>
                     {
                         filterArray.filter(item => item.product_id !== null).map((item, index) => (
-                            <div className='bookdetial-div'>
+                            <div className='DetailsBook'>
 
-                                <div className='bookdetial-container'>
-                                    <div className='cart-imageContainer'>
+                                <div className='DetailsBook-contant'>
+                                    <div className='Cart-Container'>
                                         <img className='cart-img' src={book1}></img>
                                     </div>
 
                                     <div>
 
-                                        <div className='cartBookDetails'>
-                                            <span className='cartTitle'>
+                                        <div className='Cart-BookDetails'>
+                                            <span className='Cart-Title'>
                                                 {item.product_id.bookName}
                                             </span> <br></br>
-                                            <span className='cartAuthor'>by
+                                            <span className='Cart-Author'>by
                                                 {item.product_id.author}
                                             </span> <br></br>
-                                            <div className='cart-price'>
-                                                <span className='cartNewPrice'>
+                                            <div className='Cart-price'>
+                                                <span className='Cart-new'>
                                                     {item.product_id.price}
                                                 </span><br></br>
-                                                <span className='cartOldPrice'>rs2000</span> <br></br>
+                                                <span className='Cart-Old'>rs2000</span> <br></br>
                                             </div>
                                             <div className='buttonFour'>
 
@@ -276,12 +276,12 @@ function Cart() {
                        
                     ) : (
                         <div className="order-smr-Container">
-                             {/* <div className='order'> */}
+                            
                              <div className='summary-t'>
                                     Order summary
-                                {/* </div> */}
+                               
                                 </div>
-                            {/* <p className="txt">Order Summary </p> */}
+                           
                             {filterArray.filter(item => item.product_id !== null).map((product, index) => (
                                 <div className="summery-innr-contain" key={index}>
                                     <div className="imgDiv">
@@ -296,10 +296,7 @@ function Cart() {
                                                 </span>
                                                 <span className='cartOldPrice'>Rs{product.product_id.price}</span> 
                                             </div>
-                                        {/* <span >
-                                            <b className='newPrice'>Rs. {product.product_id.discountPrice} </b>
-                                        </span>
-                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del> */}
+                                       
                                     </div>
                                 </div>
                             ))}
@@ -319,7 +316,7 @@ function Cart() {
                 </div>
                 </div>
                 </div>
-                <div className='foot'>
+                <div className='Foot-part'>
                     <Footer />
                 </div>
         </div>
