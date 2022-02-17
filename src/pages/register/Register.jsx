@@ -10,6 +10,8 @@ import { useHistory } from "react-router-dom";
 
 function Register() {
     let history= new useHistory();
+
+
     const email = /sonapatila1998@gmail.com/;
     const password = /Sona@1998/;
     const [update, setUpdate] = React.useState({ email: ' ', password: ' ' })
@@ -50,7 +52,7 @@ function Register() {
         }
 
 
-        // const submit = () => {
+        
         login(update).then((res) => {
             console.log(res)
 

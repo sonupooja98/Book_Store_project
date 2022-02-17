@@ -8,7 +8,7 @@ import { Button, TextField } from '@material-ui/core';
 
 function Signup() {
 
-    const fullName = / dsd /;
+    const fullName = /  /;
     const email = / sd/;
     const password = / sd /;
     const number = /  ds /;
