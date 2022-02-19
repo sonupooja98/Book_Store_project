@@ -3,6 +3,8 @@ import '../home/Home.scss'
 
 import icon from '../../assest/icon.png'
 import Bookcard from '../../component/bookcard/Bookcard';
+import Header from '../../component/header/Header'
+
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -10,28 +12,17 @@ import PermIdentityTwoToneIcon from '@mui/icons-material/PermIdentityTwoTone'
 
 
 function Home() {
+
+    const [dataSearch,setDataSearch] = React.useState(' ');
+
+    const listenToHeader = (data) =>{
+        setDataSearch(data)
+    }
   
 
     return (
         <div className='homecontant'>
-            <div className='homeheadpart'>
-                <img className='bookLogo' src={icon} alt='this is book logo' />
-                <p className='bookStore' >Bookstore</p>
-                <div className='searchpart'>
-                    {/* <SearchOutlinedIcon /> */}
-                    <input type='search' className='search' placeholder='Search...'></input>
-                </div>
-                <div className='profilebox'>
-                    <div className='profile'>
-                        <PermIdentityTwoToneIcon />
-                        Pooja
-                    </div>
-                </div>
-                <div className='shoppingCart'>
-                    <ShoppingCartOutlinedIcon />
-                    Cart
-                </div>
-            </div>
+           <Header listenToHeader={listenToHeader} />
             <div className='secondBar'>
                 <p className="books">Books </p>
                 <p className="item"> (128 items)</p>
@@ -45,7 +36,8 @@ function Home() {
             <div className='bookBundle'>
 
 
-                <Bookcard />
+                <Bookcard searchData={dataSearch}
+/>
             </div>
         </div>
     )

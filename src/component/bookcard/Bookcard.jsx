@@ -7,7 +7,7 @@ import SingleBook from '../singlebookdetails/SingleBook';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-function Bookcard() {
+function Bookcard(props) {
     const [bookArray, setBookArray] = React.useState([])
 
     const[select,setSelect] =React.useState(false);
@@ -36,6 +36,11 @@ function Bookcard() {
         setViewBook({...viewBook,item})
         setSelect(!select)
     }
+    
+    console.log(props.searchData)
+
+     
+
 
 
     return (
@@ -43,7 +48,9 @@ function Bookcard() {
         <div className='bookcont'>
             {select ? <SingleBook item={viewBook}/> :
             bookNumber==1 ?
-            bookArray.slice(0,8).map((item,index)=>(
+            bookArray.slice(0,8)
+            .filter(item => item.bookName.includes(props.searchData))
+            .map((item,index)=>(
                 <div className="sha" key={index}  value={select}>
                     <div className="book-container-part" onClick={()=>openImage(item)}>
                         <img className="image" src={book1}></img>
@@ -67,7 +74,10 @@ function Bookcard() {
                 </div>
             )):
             bookNumber==2 ?
-            bookArray.slice(8,16).map((item,index)=>(
+            bookArray.slice(8,16)
+            .filter(item => item.bookName.includes(props.searchData))
+            .map((item,index)=>(
+                
                 <div className="sha" key={index}  value={select}>
                     <div className="book-container-part" onClick={()=>openImage(item)}>
                         <img className="image" src={book1}></img>

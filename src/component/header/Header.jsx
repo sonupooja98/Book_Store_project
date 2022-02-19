@@ -9,13 +9,15 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PermIdentityTwoToneIcon from '@mui/icons-material/PermIdentityTwoTone'
 
 
-function Header() {
+function Header(props) {
+    const [searchWord, setSearchWord] = React.useState('');
 
     let history = useHistory();
-    const openCart =()=>{
-        history.push('/cart');
+    const inputSearch =(e) =>{
+        setSearchWord(e.target.value)
+        props.listenToHeader(e.target.value);
+    console.log(e.target.value)
     }
-
     const clickCart =() =>{
         history.push('/cart')
     }
@@ -26,7 +28,8 @@ function Header() {
         <p className='bookStore' >Bookstore</p>
         <div className='searchpart'>
             {/* <SearchOutlinedIcon /> */}
-            <input type='search' className='search' placeholder='Search...'></input>
+            <input type='search' className='search' placeholder='Search...'
+            value={searchWord} onChange={inputSearch} />
         </div>
         <div className='profilebox'>
             <div className='profile'>
@@ -34,7 +37,7 @@ function Header() {
                 Pooja
             </div>
         </div>
-        <div className='shoppingCart' onClick={openCart}>
+        <div className='shoppingCart' onClick={clickCart}>
             <ShoppingCartOutlinedIcon />
             Cart
         </div>
